@@ -7,10 +7,9 @@
   <title>自驾等时圈地图</title>
   <meta name="description" content="输入地点或使用当前位置，免费生成自驾可达时间等时圈，无需 API Key。">
   <link rel="preconnect" href="https://unpkg.com">
-  <link rel="preconnect" href="https://basemaps.cartocdn.com" crossorigin>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-        integrity="sha256-p4NxAoJBhIINfQ3ynx9u4VjMZkP3x0F5pQGi6abG8aE=" crossorigin="">
-  <link rel="stylesheet" href="./styles.css?v=20260927-3">
+  <link rel="preconnect" href="https://tiles.openfreemap.org" crossorigin>
+  <link href="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.css" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css?v=20260927-4">
 </head>
 <body>
   <main class="app-shell">
@@ -58,7 +57,7 @@
 
       <div id="status" class="status" role="status" aria-live="polite">请输入地点开始。</div>
 
-      <p class="footnote">地图数据 © OpenStreetMap contributors；地点搜索由 Nominatim 提供；道路网络等时圈由开源 Valhalla 引擎计算。</p>
+      <p class="footnote">底图由 OpenFreeMap / OpenStreetMap 提供；地点搜索由 Nominatim 提供；道路网络等时圈由开源 Valhalla 引擎计算。</p>
     </section>
 
     <section class="map-wrap">
@@ -67,8 +66,7 @@
     </section>
   </main>
 
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-          integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-  <script src="./app-valhalla-v2.js?v=20260927-3"></script>
+  <script src="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.js"></script>
+  <script src="./app-maplibre-v1.js?v=20260927-4"></script>
 </body>
 </html>

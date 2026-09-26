@@ -42,118 +42,6 @@ input[type="range"]{width:100%;accent-color:var(--accent)}
 .map-fab{position:absolute;right:18px;bottom:22px;z-index:450;width:44px;height:44px;border:none;border-radius:50%;background:white;box-shadow:var(--shadow);font-size:22px}
 .icon-btn{width:38px;height:38px;background:#f2f4f7;color:#344054;font-size:18px}
 .hidden{display:none!important}
-.leaflet-control-zoom a{border-radius:0!important}
-dialog{width:min(92vw,440px);border:0;border-radius:18px;padding:0;box-shadow:0 30px 90px rgba(17,24,39,.28)}
-dialog::backdrop{background:rgba(15,23,42,.48);backdrop-filter:blur(3px)}
-dialog form{padding:24px}
-.dialog-copy{color:var(--muted);font-size:13px;line-height:1.6}
-dialog label{display:block;font-size:12px;font-weight:700;margin:17px 0 7px}
-.dialog-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:16px}
-.text-btn{padding:10px 12px;background:#f2f4f7}
-.external-link{display:inline-block;margin-top:14px;color:var(--accent);font-size:12px;text-decoration:none}
-.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-.leaflet-popup-content{font-family:inherit}
-@media(max-width:760px){
-  .app-shell{display:block;height:100dvh;position:relative}
-  .map-wrap{height:100%}
-  .panel{position:absolute;left:10px;right:10px;top:max(10px,env(safe-area-inset-top));z-index:600;border:1px solid rgba(229,231,235,.9);border-radius:18px;padding:16px;box-shadow:0 12px 40px rgba(15,23,42,.16);max-height:54dvh;overflow:auto}
-  .brand-row h1{font-size:22px}
-  .subtext{display:none}
-  .search-row{margin-top:14px}
-  .control-block{margin-top:15px;padding-top:13px}
-  .generate-btn{margin-top:14px}
-  .place-card{margin-top:12px}
-  .legend{margin-top:11px}
-  .footnote{display:none}
-  .status{margin-top:10px}
-  .map-fab{right:16px;bottom:max(20px,env(safe-area-inset-bottom))}
-}
-
-
-/* 2026-09-27 visual refresh: light cartographic style */
-.free-badge{
-  flex:0 0 auto;
-  padding:7px 10px;
-  border-radius:999px;
-  background:rgba(15,118,110,.10);
-  color:#0f766e;
-  border:1px solid rgba(15,118,110,.18);
-  font-size:10px;
-  font-weight:800;
-  letter-spacing:.02em;
-  white-space:nowrap;
-}
-.panel{
-  background:rgba(255,255,255,.91);
-  backdrop-filter:blur(12px) saturate(1.08);
-  -webkit-backdrop-filter:blur(12px) saturate(1.08);
-  border-right:1px solid rgba(229,231,235,.74);
-  box-shadow:8px 0 32px rgba(15,23,42,.045);
-}
-#map{
-  background:#e7eef0;
-}
-.generate-btn{
-  background:#123c43;
-  box-shadow:0 8px 18px rgba(18,60,67,.16);
-}
-.generate-btn:hover:not(:disabled){
-  background:#0d3035;
-  transform:translateY(-1px);
-}
-.primary-btn{
-  background:#147f79;
-}
-.primary-btn:hover{
-  background:#0f6e69;
-}
-.secondary-btn:hover{
-  background:#f1f7f6;
-  border-color:#c9dedb;
-}
-.control-title strong,
-.eyebrow{
-  color:#0f766e;
-}
-input[type="range"]{
-  accent-color:#0f766e;
-}
-.place-dot{
-  background:#0f766e;
-  box-shadow:0 0 0 4px rgba(15,118,110,.12);
-}
-.place-card{
-  background:rgba(248,250,252,.82);
-  border-color:rgba(214,224,225,.85);
-}
-.legend{
-  padding:10px 11px;
-  border-radius:12px;
-  background:rgba(245,249,249,.78);
-  border:1px solid rgba(214,224,225,.76);
-}
-.legend-swatch{
-  border-radius:999px;
-  box-shadow:inset 0 0 0 1px rgba(10,55,58,.12);
-}
-.leaflet-control-zoom{
-  border:none!important;
-  box-shadow:0 8px 22px rgba(15,23,42,.14)!important;
-}
-.leaflet-control-zoom a{
-  color:#173d41!important;
-  border-color:#e8eeee!important;
-}
-.leaflet-tooltip{
-  border:0!important;
-  border-radius:8px!important;
-  background:rgba(18,40,44,.92)!important;
-  color:#fff!important;
-  box-shadow:0 6px 18px rgba(15,23,42,.22)!important;
-}
-.leaflet-tooltip:before{
-  border-top-color:rgba(18,40,44,.92)!important;
-}
 @media(max-width:760px){
   .panel{
     background:rgba(255,255,255,.90);
@@ -164,4 +52,50 @@ input[type="range"]{
     padding:6px 8px;
     font-size:9px;
   }
+}
+
+
+/* MapLibre + OpenFreeMap visual layer */
+.maplibregl-map{
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+}
+.maplibregl-ctrl-top-right{
+  top:14px;
+  right:14px;
+}
+.maplibregl-ctrl-group{
+  border-radius:12px!important;
+  overflow:hidden;
+  box-shadow:0 10px 26px rgba(15,23,42,.14)!important;
+}
+.maplibregl-ctrl-group button{
+  width:38px!important;
+  height:38px!important;
+}
+.maplibregl-ctrl-attrib{
+  border-radius:8px 0 0 0!important;
+  background:rgba(255,255,255,.78)!important;
+  backdrop-filter:blur(6px);
+  font-size:10px!important;
+}
+.maplibregl-popup-content{
+  padding:10px 12px!important;
+  border-radius:10px!important;
+  box-shadow:0 10px 28px rgba(15,23,42,.18)!important;
+}
+.origin-marker{
+  width:24px;
+  height:24px;
+  border-radius:50%;
+  background:rgba(255,255,255,.96);
+  box-shadow:0 3px 12px rgba(6,78,79,.34);
+  display:grid;
+  place-items:center;
+}
+.origin-marker span{
+  width:11px;
+  height:11px;
+  border-radius:50%;
+  background:#0d8d87;
+  box-shadow:0 0 0 4px rgba(13,141,135,.18);
 }

@@ -14,8 +14,8 @@
 ## 技术栈
 
 - GitHub Pages（纯静态前端）
-- Leaflet
-- OpenStreetMap tiles
+- MapLibre GL JS
+- OpenFreeMap vector tiles（OpenStreetMap 数据）
 - Nominatim（地点搜索；仅在用户主动提交搜索时请求，无自动补全）
 - Valhalla 开源路由引擎的 FOSSGIS 公共 Demo 服务（自驾等时圈）
 
