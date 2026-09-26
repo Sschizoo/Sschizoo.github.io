@@ -1,0 +1,25 @@
+services:
+  graphhopper:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    environment:
+      OSM_PBF: /data/region.osm.pbf
+      GRAPH_DIR: /data/graph-cache
+      JAVA_XMS: 2g
+      JAVA_XMX: 12g
+      ROUTING_TIMEOUT_MS: 1800000
+      MAX_VISITED_NODES: 2147483647
+    volumes:
+      - ./data:/data
+
+  proxy:
+    image: nginx:1.29-alpine
+    restart: unless-stopped
+    depends_on:
+      - graphhopper
+    ports:
+      - "8988:8080"
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro

@@ -159,3 +159,10 @@ input[type="range"]{width:100%;accent-color:var(--accent)}
     height:42px;
   }
 }
+
+
+.engine-note{
+  font-size:11px;
+  line-height:1.5;
+  color:#667085;
+}

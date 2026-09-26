@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://unpkg.com">
   <link rel="preconnect" href="https://tiles.openfreemap.org" crossorigin>
   <link href="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.css" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css?v=20260927-6">
+  <link rel="stylesheet" href="./styles.css?v=20260927-7">
 </head>
 <body>
   <main class="app-shell">
@@ -19,7 +19,7 @@
           <p class="eyebrow">DRIVING ISOCHRONE</p>
           <h1>自驾等时圈地图</h1>
         </div>
-        <span class="free-badge">免 API Key · Valhalla</span>
+        <span class="free-badge">真实道路网络 · 无 API Key</span>
       </div>
 
       <p class="subtext">输入地点或使用设备定位，查看不同驾驶时间内可到达的道路网络范围。</p>
@@ -37,7 +37,7 @@
       <div class="control-block">
         <div class="control-title">
           <span>驾驶时长</span>
-          <strong id="durationModeLabel">精确道路模式</strong>
+          <strong id="durationModeLabel">真实道路网络</strong>
         </div>
         <div class="duration-row">
           <label class="sr-only" for="durationInput">驾驶时长数值</label>
@@ -49,7 +49,7 @@
             <option value="day">天</option>
           </select>
         </div>
-        <div id="durationHint" class="duration-hint">1–120 分钟使用真实道路网络计算；更长时长自动切换为长时程估算，最高 30 天。</div>
+        <div id="durationHint" class="duration-hint">自由输入时长，最高 30 天。结果只使用真实道路网络计算，不再生成估算圆。</div>
       </div>
 
       <button id="generateBtn" class="generate-btn" type="button" disabled>生成自驾等时圈</button>
@@ -76,6 +76,7 @@
   </main>
 
   <script src="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.js"></script>
-  <script src="./app-maplibre-v1.js?v=20260927-5"></script>
+  <script src="./router-config.js?v=20260927-7"></script>
+  <script src="./app-exact-v3.js?v=20260927-7"></script>
 </body>
 </html>
