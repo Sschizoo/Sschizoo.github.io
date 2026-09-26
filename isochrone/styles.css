@@ -178,3 +178,15 @@ input[type="range"]{width:100%;accent-color:var(--accent)}
   font-size:10px;
   padding-top:4px;
 }
+
+
+/* Wavefront fitting mode */
+#durationModeLabel.estimate{
+  color:#a45f16;
+}
+.legend-mode{
+  flex-basis:100%;
+  color:#8a5a20;
+  font-size:10px;
+  padding-top:4px;
+}
