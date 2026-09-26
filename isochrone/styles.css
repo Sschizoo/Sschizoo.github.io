@@ -166,3 +166,15 @@ input[type="range"]{width:100%;accent-color:var(--accent)}
   line-height:1.5;
   color:#667085;
 }
+
+
+/* Demo extrapolation mode */
+#durationModeLabel.estimate{
+  color:#a45f16;
+}
+.legend-mode{
+  flex-basis:100%;
+  color:#8a5a20;
+  font-size:10px;
+  padding-top:4px;
+}
