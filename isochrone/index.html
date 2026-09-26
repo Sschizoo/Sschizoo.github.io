@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://unpkg.com">
   <link rel="preconnect" href="https://tiles.openfreemap.org" crossorigin>
   <link href="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.css" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css?v=20260927-10">
+  <link rel="stylesheet" href="./styles.css?v=20260927-11">
 </head>
 <body>
   <main class="app-shell">
@@ -19,7 +19,7 @@
           <p class="eyebrow">DRIVING ISOCHRONE</p>
           <h1>自驾等时圈地图</h1>
         </div>
-        <span class="free-badge">多波次道路拟合 · Demo</span>
+        <span class="free-badge">真实请求包络 · Demo</span>
       </div>
 
       <p class="subtext">输入地点或使用设备定位，查看不同驾驶时间内可到达的道路网络范围。</p>
@@ -49,7 +49,7 @@
             <option value="day">天</option>
           </select>
         </div>
-        <div id="durationHint" class="duration-hint">自由输入时长，最高 30 天。≤60 分钟真实路网；更长时长先进行多轮 60 分钟道路扩散拼接，再按方向增长曲线拟合。</div>
+        <div id="durationHint" class="duration-hint">自由输入时长，最高 30 天。固定输出 4 个圈。每个最终圈都会调用真实 Valhalla；拟合只用于确定前沿采样位置。</div>
       </div>
 
       <button id="generateBtn" class="generate-btn" type="button" disabled>生成自驾等时圈</button>
@@ -77,6 +77,6 @@
 
   <script src="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@turf/turf@7.4.0/turf.min.js"></script>
-  <script src="./app-wavefit-v6.js?v=20260927-10"></script>
+  <script src="./app-service-envelope-v7.js?v=20260927-11"></script>
 </body>
 </html>

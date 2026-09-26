@@ -190,3 +190,15 @@ input[type="range"]{width:100%;accent-color:var(--accent)}
   font-size:10px;
   padding-top:4px;
 }
+
+
+/* Service-derived final contour mode */
+#durationModeLabel.estimate{
+  color:#9a5c12;
+}
+.legend-mode{
+  flex-basis:100%;
+  color:#71501f;
+  font-size:10px;
+  padding-top:4px;
+}
