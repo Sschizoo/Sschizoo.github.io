@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://unpkg.com">
   <link rel="preconnect" href="https://tiles.openfreemap.org" crossorigin>
   <link href="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.css" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css?v=20260927-8">
+  <link rel="stylesheet" href="./styles.css?v=20260927-9">
 </head>
 <body>
   <main class="app-shell">
@@ -49,7 +49,7 @@
             <option value="day">天</option>
           </select>
         </div>
-        <div id="durationHint" class="duration-hint">自由输入时长，最高 30 天。≤120 分钟真实路网计算；更长时长按真实道路边界形状做测地线外推。</div>
+        <div id="durationHint" class="duration-hint">自由输入时长，最高 30 天。≤60 分钟真实路网计算；更长时长按真实 60 分钟道路边界形状做测地线外推。</div>
       </div>
 
       <button id="generateBtn" class="generate-btn" type="button" disabled>生成自驾等时圈</button>
@@ -76,6 +76,6 @@
   </main>
 
   <script src="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.js"></script>
-  <script src="./app-demo-v4.js?v=20260927-8"></script>
+  <script src="./app-demo-v5.js?v=20260927-9"></script>
 </body>
 </html>
