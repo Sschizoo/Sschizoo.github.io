@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#111827">
+  <title>自驾等时圈地图</title>
+  <meta name="description" content="输入地点或使用当前位置，生成自驾可达时间等时圈。">
+  <link rel="preconnect" href="https://unpkg.com">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIINfQ3ynx9u4VjMZkP3x0F5pQGi6abG8aE=" crossorigin="">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="panel" aria-label="等时圈控制面板">
+      <div class="brand-row">
+        <div>
+          <p class="eyebrow">DRIVING ISOCHRONE</p>
+          <h1>自驾等时圈地图</h1>
+        </div>
+        <button id="settingsBtn" class="icon-btn" type="button" aria-label="API 设置" title="API 设置">⚙</button>
+      </div>
+
+      <p class="subtext">输入地点或使用设备定位，查看不同驾驶时间内可到达的范围。</p>
+
+      <form id="searchForm" class="search-row">
+        <label class="sr-only" for="placeInput">地点</label>
+        <input id="placeInput" type="search" autocomplete="off" placeholder="例如：北京国贸 / 武汉大学" required>
+        <button class="primary-btn" type="submit">查找</button>
+      </form>
+
+      <button id="locateBtn" class="secondary-btn" type="button">
+        <span>◎</span> 使用当前位置
+      </button>
+
+      <div class="control-block">
+        <div class="control-title">
+          <span>最长驾驶时间</span>
+          <strong id="timeLabel">30 分钟</strong>
+        </div>
+        <input id="timeRange" type="range" min="10" max="60" step="10" value="30" aria-label="最长驾驶时间">
+        <div class="range-labels"><span>10</span><span>20</span><span>30</span><span>40</span><span>50</span><span>60 min</span></div>
+      </div>
+
+      <button id="generateBtn" class="generate-btn" type="button" disabled>生成自驾等时圈</button>
+
+      <div id="placeCard" class="place-card hidden">
+        <span class="place-dot"></span>
+        <div>
+          <small>当前起点</small>
+          <div id="placeName"></div>
+        </div>
+      </div>
+
+      <div id="legend" class="legend hidden" aria-label="图例"></div>
+
+      <div id="status" class="status" role="status" aria-live="polite">请输入地点开始。</div>
+
+      <p class="footnote">地图 © OpenStreetMap；地理编码由 Nominatim 提供；等时圈由 openrouteservice 提供。</p>
+    </section>
+
+    <section class="map-wrap">
+      <div id="map" aria-label="地图"></div>
+      <button id="recenterBtn" class="map-fab hidden" type="button" title="回到起点">⌖</button>
+    </section>
+  </main>
+
+  <dialog id="settingsDialog">
+    <form method="dialog" id="settingsForm">
+      <div class="dialog-head">
+        <div>
+          <p class="eyebrow">OPENROUTESERVICE</p>
+          <h2>API 设置</h2>
+        </div>
+        <button class="icon-btn" value="cancel" aria-label="关闭">×</button>
+      </div>
+      <p class="dialog-copy">等时圈需要 openrouteservice API Key。Key 只保存在当前浏览器的 localStorage 中，不会写入 GitHub 仓库。</p>
+      <label for="apiKeyInput">API Key</label>
+      <input id="apiKeyInput" type="password" placeholder="粘贴你的 API Key" autocomplete="off">
+      <div class="dialog-actions">
+        <button id="clearKeyBtn" class="text-btn" type="button">清除 Key</button>
+        <button id="saveKeyBtn" class="primary-btn" type="button">保存</button>
+      </div>
+      <a class="external-link" href="https://openrouteservice.org/" target="_blank" rel="noopener">前往 openrouteservice 获取 Key ↗</a>
+    </form>
+  </dialog>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+          integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="./app.js"></script>
+</body>
+</html>
