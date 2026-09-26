@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://unpkg.com">
   <link rel="preconnect" href="https://tiles.openfreemap.org" crossorigin>
   <link href="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.css" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css?v=20260927-4">
+  <link rel="stylesheet" href="./styles.css?v=20260927-6">
 </head>
 <body>
   <main class="app-shell">
@@ -36,11 +36,20 @@
 
       <div class="control-block">
         <div class="control-title">
-          <span>最长驾驶时间</span>
-          <strong id="timeLabel">30 分钟</strong>
+          <span>驾驶时长</span>
+          <strong id="durationModeLabel">精确道路模式</strong>
         </div>
-        <input id="timeRange" type="range" min="10" max="60" step="10" value="30" aria-label="最长驾驶时间">
-        <div class="range-labels"><span>10</span><span>20</span><span>30</span><span>40</span><span>50</span><span>60 min</span></div>
+        <div class="duration-row">
+          <label class="sr-only" for="durationInput">驾驶时长数值</label>
+          <input id="durationInput" class="duration-input" type="number" min="1" max="43200" step="1" value="30" inputmode="decimal" aria-label="驾驶时长">
+          <label class="sr-only" for="durationUnit">驾驶时长单位</label>
+          <select id="durationUnit" class="duration-unit" aria-label="驾驶时长单位">
+            <option value="minute" selected>分钟</option>
+            <option value="hour">小时</option>
+            <option value="day">天</option>
+          </select>
+        </div>
+        <div id="durationHint" class="duration-hint">1–120 分钟使用真实道路网络计算；更长时长自动切换为长时程估算，最高 30 天。</div>
       </div>
 
       <button id="generateBtn" class="generate-btn" type="button" disabled>生成自驾等时圈</button>

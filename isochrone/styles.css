@@ -99,3 +99,63 @@ input[type="range"]{width:100%;accent-color:var(--accent)}
   background:#0d8d87;
   box-shadow:0 0 0 4px rgba(13,141,135,.18);
 }
+
+
+/* Free-duration control */
+.duration-row{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 108px;
+  gap:9px;
+}
+.duration-input,
+.duration-unit{
+  width:100%;
+  height:46px;
+  border:1px solid #d0d5dd;
+  background:rgba(255,255,255,.94);
+  border-radius:12px;
+  padding:0 13px;
+  outline:none;
+  color:#182230;
+}
+.duration-input:focus,
+.duration-unit:focus{
+  border-color:#0f766e;
+  box-shadow:0 0 0 3px rgba(15,118,110,.11);
+}
+.duration-unit{
+  cursor:pointer;
+  font-weight:700;
+  color:#0f6662;
+}
+.duration-hint{
+  margin-top:9px;
+  color:#667085;
+  font-size:11px;
+  line-height:1.55;
+}
+.duration-hint.error{
+  color:#b42318;
+}
+#durationModeLabel.estimate{
+  color:#b06516;
+}
+.legend-mode{
+  flex-basis:100%;
+  padding-top:4px;
+  color:#8a5a20;
+  font-size:10px;
+}
+.legend-swatch.estimated{
+  border:1px dashed rgba(12,73,76,.75);
+  background-clip:padding-box!important;
+}
+@media(max-width:760px){
+  .duration-row{
+    grid-template-columns:minmax(0,1fr) 96px;
+  }
+  .duration-input,
+  .duration-unit{
+    height:42px;
+  }
+}
