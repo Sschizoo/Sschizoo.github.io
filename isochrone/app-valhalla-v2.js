@@ -1,11 +1,38 @@
 const VALHALLA_ISOCHRONE = 'https://valhalla1.openstreetmap.de/isochrone';
 const NOMINATIM = 'https://nominatim.openstreetmap.org/search';
 
-const map = L.map('map', { zoomControl: true }).setView([34.5, 108.5], 4);
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  maxZoom: 19,
-  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-}).addTo(map);
+const map = L.map('map', {
+  zoomControl: true,
+  preferCanvas: true
+}).setView([34.5, 108.5], 4);
+
+// 快速浅色底图：CARTO CDN，无需 API Key。
+// 地名拆成独立图层，等时圈可以覆盖底图而不遮住标注。
+const baseLayer = L.tileLayer(
+  'https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png',
+  {
+    subdomains: 'abcd',
+    maxZoom: 20,
+    updateWhenIdle: true,
+    keepBuffer: 4,
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; CARTO'
+  }
+).addTo(map);
+
+map.createPane('labels');
+map.getPane('labels').style.zIndex = 650;
+map.getPane('labels').style.pointerEvents = 'none';
+
+const labelLayer = L.tileLayer(
+  'https://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}{r}.png',
+  {
+    subdomains: 'abcd',
+    maxZoom: 20,
+    pane: 'labels',
+    updateWhenIdle: true,
+    keepBuffer: 4
+  }
+).addTo(map);
 
 const $ = (id) => document.getElementById(id);
 const searchForm = $('searchForm');
@@ -55,12 +82,12 @@ function setOrigin(lat, lon, label) {
 }
 
 function colorFor(minutes) {
-  if (minutes <= 10) return '#2f80ed';
-  if (minutes <= 20) return '#27ae60';
-  if (minutes <= 30) return '#f2c94c';
-  if (minutes <= 40) return '#f2994a';
-  if (minutes <= 50) return '#eb5757';
-  return '#9b51e0';
+  if (minutes <= 10) return '#0f766e';
+  if (minutes <= 20) return '#168884';
+  if (minutes <= 30) return '#269b99';
+  if (minutes <= 40) return '#4aafb0';
+  if (minutes <= 50) return '#78c3c7';
+  return '#abd8df';
 }
 
 function buildContourMinutes(maxMin) {
@@ -207,10 +234,11 @@ generateBtn.addEventListener('click', async () => {
           const color = colorFor(minutes);
           return {
             color,
-            weight: 2,
+            weight: minutes <= 20 ? 1.8 : 1.25,
             fillColor: color,
-            fillOpacity: .16,
-            opacity: .9
+            fillOpacity: .18,
+            opacity: .88,
+            lineJoin: 'round'
           };
         },
         onEachFeature: (feature, layer) => {

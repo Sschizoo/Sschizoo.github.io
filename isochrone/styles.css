@@ -68,3 +68,100 @@ dialog label{display:block;font-size:12px;font-weight:700;margin:17px 0 7px}
   .status{margin-top:10px}
   .map-fab{right:16px;bottom:max(20px,env(safe-area-inset-bottom))}
 }
+
+
+/* 2026-09-27 visual refresh: light cartographic style */
+.free-badge{
+  flex:0 0 auto;
+  padding:7px 10px;
+  border-radius:999px;
+  background:rgba(15,118,110,.10);
+  color:#0f766e;
+  border:1px solid rgba(15,118,110,.18);
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.02em;
+  white-space:nowrap;
+}
+.panel{
+  background:rgba(255,255,255,.91);
+  backdrop-filter:blur(12px) saturate(1.08);
+  -webkit-backdrop-filter:blur(12px) saturate(1.08);
+  border-right:1px solid rgba(229,231,235,.74);
+  box-shadow:8px 0 32px rgba(15,23,42,.045);
+}
+#map{
+  background:#e7eef0;
+}
+.generate-btn{
+  background:#123c43;
+  box-shadow:0 8px 18px rgba(18,60,67,.16);
+}
+.generate-btn:hover:not(:disabled){
+  background:#0d3035;
+  transform:translateY(-1px);
+}
+.primary-btn{
+  background:#147f79;
+}
+.primary-btn:hover{
+  background:#0f6e69;
+}
+.secondary-btn:hover{
+  background:#f1f7f6;
+  border-color:#c9dedb;
+}
+.control-title strong,
+.eyebrow{
+  color:#0f766e;
+}
+input[type="range"]{
+  accent-color:#0f766e;
+}
+.place-dot{
+  background:#0f766e;
+  box-shadow:0 0 0 4px rgba(15,118,110,.12);
+}
+.place-card{
+  background:rgba(248,250,252,.82);
+  border-color:rgba(214,224,225,.85);
+}
+.legend{
+  padding:10px 11px;
+  border-radius:12px;
+  background:rgba(245,249,249,.78);
+  border:1px solid rgba(214,224,225,.76);
+}
+.legend-swatch{
+  border-radius:999px;
+  box-shadow:inset 0 0 0 1px rgba(10,55,58,.12);
+}
+.leaflet-control-zoom{
+  border:none!important;
+  box-shadow:0 8px 22px rgba(15,23,42,.14)!important;
+}
+.leaflet-control-zoom a{
+  color:#173d41!important;
+  border-color:#e8eeee!important;
+}
+.leaflet-tooltip{
+  border:0!important;
+  border-radius:8px!important;
+  background:rgba(18,40,44,.92)!important;
+  color:#fff!important;
+  box-shadow:0 6px 18px rgba(15,23,42,.22)!important;
+}
+.leaflet-tooltip:before{
+  border-top-color:rgba(18,40,44,.92)!important;
+}
+@media(max-width:760px){
+  .panel{
+    background:rgba(255,255,255,.90);
+    border-color:rgba(225,234,234,.86);
+    box-shadow:0 14px 36px rgba(15,23,42,.15);
+  }
+  .free-badge{
+    padding:6px 8px;
+    font-size:9px;
+  }
+}
