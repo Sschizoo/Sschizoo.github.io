@@ -202,3 +202,242 @@ input[type="range"]{width:100%;accent-color:var(--accent)}
   font-size:10px;
   padding-top:4px;
 }
+
+
+/* Mobile-first full-screen map + bottom sheet */
+.panel-toggle{
+  display:none;
+}
+
+@media(max-width:760px){
+  html,body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+  }
+
+  .app-shell{
+    position:relative;
+    display:block;
+    width:100%;
+    height:100dvh;
+    overflow:hidden;
+  }
+
+  .map-wrap{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    min-width:0;
+    z-index:1;
+  }
+
+  #map{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+  }
+
+  .panel{
+    position:fixed;
+    left:0;
+    right:0;
+    bottom:0;
+    top:auto;
+    z-index:800;
+    width:100%;
+    max-height:min(44dvh,430px);
+    padding:7px 14px calc(14px + env(safe-area-inset-bottom));
+    overflow:auto;
+    overscroll-behavior:contain;
+    -webkit-overflow-scrolling:touch;
+    border:1px solid rgba(222,232,232,.9);
+    border-bottom:0;
+    border-radius:22px 22px 0 0;
+    background:rgba(255,255,255,.94);
+    backdrop-filter:blur(16px) saturate(1.08);
+    -webkit-backdrop-filter:blur(16px) saturate(1.08);
+    box-shadow:0 -12px 36px rgba(15,23,42,.15);
+    transition:max-height .22s ease, padding .22s ease;
+  }
+
+  .panel-toggle{
+    position:sticky;
+    top:-7px;
+    z-index:5;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    width:100%;
+    height:32px;
+    margin:0 0 4px;
+    padding:0;
+    border:0;
+    background:rgba(255,255,255,.96);
+    color:#667085;
+    font-size:11px;
+    font-weight:700;
+  }
+
+  .panel-handle{
+    width:38px;
+    height:4px;
+    border-radius:999px;
+    background:#cbd5d7;
+  }
+
+  .panel.mobile-collapsed{
+    max-height:54px;
+    padding-bottom:calc(8px + env(safe-area-inset-bottom));
+    overflow:hidden;
+  }
+
+  .panel.mobile-collapsed > :not(.panel-toggle){
+    display:none!important;
+  }
+
+  .brand-row{
+    gap:8px;
+  }
+
+  .brand-row h1{
+    font-size:18px;
+    line-height:1.15;
+  }
+
+  .eyebrow{
+    display:none;
+  }
+
+  .free-badge{
+    padding:5px 7px;
+    font-size:8px;
+  }
+
+  .subtext{
+    display:none;
+  }
+
+  .search-row{
+    margin-top:10px;
+    grid-template-columns:minmax(0,1fr) 64px;
+    gap:7px;
+  }
+
+  input[type="search"]{
+    min-width:0;
+    height:40px;
+    padding:9px 11px;
+    border-radius:10px;
+    font-size:14px;
+  }
+
+  .primary-btn{
+    height:40px;
+    padding:0 10px;
+    border-radius:10px;
+    font-size:13px;
+  }
+
+  .secondary-btn{
+    margin-top:7px;
+    height:38px;
+    padding:0 10px;
+    border-radius:10px;
+    font-size:13px;
+  }
+
+  .control-block{
+    margin-top:10px;
+    padding-top:10px;
+  }
+
+  .control-title{
+    margin-bottom:8px;
+    font-size:12px;
+  }
+
+  .duration-row{
+    grid-template-columns:minmax(0,1fr) 88px;
+    gap:7px;
+  }
+
+  .duration-input,
+  .duration-unit{
+    height:40px;
+    border-radius:10px;
+    padding:0 10px;
+    font-size:14px;
+  }
+
+  .duration-hint{
+    margin-top:6px;
+    font-size:10px;
+    line-height:1.4;
+  }
+
+  .generate-btn{
+    margin-top:10px;
+    height:42px;
+    padding:0 12px;
+    border-radius:11px;
+    font-size:14px;
+  }
+
+  .place-card{
+    margin-top:8px;
+    padding:8px 10px;
+    border-radius:10px;
+  }
+
+  #placeName{
+    font-size:11px;
+    line-height:1.35;
+  }
+
+  .legend{
+    margin-top:8px;
+    padding:7px 8px;
+    gap:5px 9px;
+    font-size:10px;
+  }
+
+  .status{
+    margin-top:7px;
+    min-height:16px;
+    font-size:10px;
+    line-height:1.35;
+  }
+
+  .footnote{
+    display:none;
+  }
+
+  .map-fab{
+    right:14px;
+    bottom:calc(58px + env(safe-area-inset-bottom));
+    z-index:700;
+  }
+
+  .panel:not(.mobile-collapsed) ~ .map-wrap .map-fab{
+    bottom:calc(min(44dvh,430px) + 14px);
+  }
+
+  .maplibregl-ctrl-top-right{
+    top:max(10px,env(safe-area-inset-top));
+    right:10px;
+  }
+
+  .maplibregl-ctrl-group button{
+    width:34px!important;
+    height:34px!important;
+  }
+
+  .maplibregl-ctrl-attrib{
+    max-width:42vw;
+    font-size:8px!important;
+  }
+}

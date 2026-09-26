@@ -9,11 +9,15 @@
   <link rel="preconnect" href="https://unpkg.com">
   <link rel="preconnect" href="https://tiles.openfreemap.org" crossorigin>
   <link href="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.css" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css?v=20260927-11">
+  <link rel="stylesheet" href="./styles.css?v=20260927-12">
 </head>
 <body>
   <main class="app-shell">
-    <section class="panel" aria-label="等时圈控制面板">
+    <section class="panel" id="controlPanel" aria-label="等时圈控制面板">
+      <button id="panelToggle" class="panel-toggle" type="button" aria-expanded="true" aria-label="收起或展开控制面板">
+        <span class="panel-handle" aria-hidden="true"></span>
+        <span id="panelToggleText">收起</span>
+      </button>
       <div class="brand-row">
         <div>
           <p class="eyebrow">DRIVING ISOCHRONE</p>
@@ -77,6 +81,6 @@
 
   <script src="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@turf/turf@7.4.0/turf.min.js"></script>
-  <script src="./app-service-envelope-v7.js?v=20260927-11"></script>
+  <script src="./app-mobile-v8.js?v=20260927-12"></script>
 </body>
 </html>
