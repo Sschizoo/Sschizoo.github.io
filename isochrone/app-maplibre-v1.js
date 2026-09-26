@@ -104,12 +104,15 @@ function colorFor(minutes) {
 }
 
 function buildContourMinutes(maxMin) {
-  if (maxMin <= 50) {
+  // FOSSGIS 的公开 Valhalla 实例一次最多允许 4 条 contour。
+  // 10–40 分钟保持 10 分钟间隔；50/60 分钟压缩为 4 条并保留最大值。
+  if (maxMin <= 40) {
     const values = [];
     for (let m = 10; m <= maxMin; m += 10) values.push(m);
     return values;
   }
-  return [10, 20, 30, 45, 60];
+  if (maxMin === 50) return [10, 20, 35, 50];
+  return [15, 30, 45, 60];
 }
 
 function renderLegend(minutesList) {
